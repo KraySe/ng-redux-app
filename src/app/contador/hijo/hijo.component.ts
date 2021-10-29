@@ -9,10 +9,10 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 export class HijoComponent implements OnInit {
 
   @Input()
-  count!: number;
+  counter!: number;
 
   @Output()
-  changeCount = new EventEmitter<number>();
+  changeCounter = new EventEmitter<number>();
 
   constructor() { }
 
@@ -20,18 +20,18 @@ export class HijoComponent implements OnInit {
   }
 
   public multiply() {
-    this.count *= 2;
-    this.changeCount.emit(this.count);
+    this.counter *= 2;
+    this.changeCounter.emit(this.counter);
   }
 
   public divide() {
-    this.count /= 2;
-    this.changeCount.emit(this.count);
+    this.counter /= 2;
+    this.changeCounter.emit(this.counter);
   }
 
-  public reset(count: number) {
-    this.count = count;
-    this.changeCount.emit(this.count);
+  public reset(counter: number) {
+    this.counter = counter;
+    this.changeCounter.emit(this.counter);
   }
 
 }

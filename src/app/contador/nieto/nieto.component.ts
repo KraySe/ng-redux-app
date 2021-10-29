@@ -9,10 +9,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class NietoComponent implements OnInit {
 
   @Input()
-  count!: number;
+  counter!: number;
 
   @Output()
-  changeCount = new EventEmitter<number>();
+  changeCounter = new EventEmitter<number>();
 
   constructor() { }
 
@@ -20,8 +20,8 @@ export class NietoComponent implements OnInit {
   }
 
   public reset() {
-    this.count = 0;
-    this.changeCount.emit(this.count);
+    this.counter = 0;
+    this.changeCounter.emit(this.counter);
   }
 
 }

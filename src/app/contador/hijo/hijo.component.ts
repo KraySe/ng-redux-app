@@ -29,4 +29,9 @@ export class HijoComponent implements OnInit {
     this.changeCount.emit(this.count);
   }
 
+  public reset(count: number) {
+    this.count = count;
+    this.changeCount.emit(this.count);
+  }
+
 }

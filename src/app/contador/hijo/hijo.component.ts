@@ -11,7 +11,7 @@ import * as actions from '../contador.actions';
 })
 export class HijoComponent implements OnInit {
 
-  counter: number | undefined;
+  public counter: number | undefined;
 
   constructor(
     private store: Store<AppState>
@@ -29,9 +29,6 @@ export class HijoComponent implements OnInit {
         num: 3
       }
     ));
-
-    // this.counter *= 2;
-    // this.changeCounter.emit(this.counter);
   }
 
   public divide() {
@@ -40,8 +37,6 @@ export class HijoComponent implements OnInit {
         num: 2
       }
     ));
-    // this.counter /= 2;
-    // this.changeCounter.emit(this.counter);
   }
 
 }

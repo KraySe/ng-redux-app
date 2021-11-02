@@ -1,5 +1,5 @@
 import { createReducer, on, Action } from '@ngrx/store';
-import { increment, decrement, multiply, divide } from './contador.actions';
+import { increment, decrement, multiply, divide, reset } from './contador.actions';
 
 // export function counterReducer(state: number = 10, action: Action) {
 //     switch (action.type) {
@@ -20,6 +20,7 @@ const _counterReducer = createReducer(
     on(decrement, state => state - 1),
     on(multiply, (state, { num }) => state * num),
     on(divide, (state, { num }) => state / num),
+    on(reset, () => initialState),
 )
 
 export function counterReducer(state: number = initialState, action: Action) {

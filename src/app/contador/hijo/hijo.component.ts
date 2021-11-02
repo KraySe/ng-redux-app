@@ -1,4 +1,6 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.reducers';
 
 @Component({
   selector: 'app-hijo',
@@ -8,30 +10,26 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HijoComponent implements OnInit {
 
-  @Input()
-  counter!: number;
+  counter: number | undefined;
 
-  @Output()
-  changeCounter = new EventEmitter<number>();
-
-  constructor() { }
+  constructor(
+    private store: Store<AppState>
+  ) { }
 
   ngOnInit(): void {
+    this.store.select('counter').subscribe((counter) => {
+      this.counter = counter;
+    })
   }
 
   public multiply() {
-    this.counter *= 2;
-    this.changeCounter.emit(this.counter);
+    // this.counter *= 2;
+    // this.changeCounter.emit(this.counter);
   }
 
   public divide() {
-    this.counter /= 2;
-    this.changeCounter.emit(this.counter);
-  }
-
-  public reset(counter: number) {
-    this.counter = counter;
-    this.changeCounter.emit(this.counter);
+    // this.counter /= 2;
+    // this.changeCounter.emit(this.counter);
   }
 
 }
